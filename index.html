@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GymBox Carlos Zárate</title>
+<meta name="description" content="GymBox Carlos Zárate: box, entrenamiento funcional y pesas. Logramos objetivos y alcanzamos metas.">
+<meta name="theme-color" content="#0d0b0b">
+<meta property="og:title" content="GymBox Carlos Zárate">
+<meta property="og:description" content="Box · Entrenamiento funcional · Pesas. Prueba tu primer round gratis.">
+<meta property="og:image" content="img/fachada-mural.jpg">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GymBox">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Concepto: tarjeta de pelea vertical. Pared negra del gym, rojo del ring, letras blanco hueso. */
+:root{
+  --ink:#0d0b0b;      /* pared negra */
+  --coal:#171414;     /* superficie */
+  --rope:#2b2525;     /* líneas */
+  --bone:#f3eee7;     /* texto principal */
+  --dust:#a69d95;     /* texto secundario */
+  --red:#d3203f;      /* rojo del ring */
+  --red-deep:#8e1428;
+  --wa:#25d366;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --label:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--body);font-size:16px;line-height:1.5}
+img{max-width:100%;height:auto;display:block}
+[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+
+.wrap{max-width:520px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* HERO */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding-top:env(safe-area-inset-top,0px)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/fachada-mural.jpg") center 30%/cover no-repeat;filter:grayscale(.35) contrast(1.05)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(13,11,11,.55) 0%,rgba(13,11,11,.72) 45%,var(--ink) 100%)}
+.hero .wrap{padding-block:40px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.logo{width:132px;height:auto;filter:drop-shadow(0 4px 18px rgba(0,0,0,.6));margin-bottom:10px}
+.eyebrow{font-family:var(--label);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:13px;color:var(--dust)}
+.eyebrow b{color:var(--red);font-weight:700}
+h1{margin:4px 0 0;font-family:var(--display);font-weight:900;font-size:clamp(64px,19vw,96px);line-height:.85;letter-spacing:.01em;text-transform:uppercase}
+.owner{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:.32em;text-transform:uppercase;margin-top:4px;padding-left:.32em}
+.motto{margin:14px 0 0;font-size:18px;max-width:30ch;text-wrap:balance;color:var(--bone)}
+.motto strong{color:var(--red);font-weight:600}
+
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:6px 12px;border:1px solid var(--rope);background:rgba(23,20,20,.75);font-family:var(--label);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--dust)}
+.status.open i{background:var(--wa);box-shadow:0 0 0 4px rgba(37,211,102,.18)}
+
+/* PROMO */
+.promo{background:var(--red);color:#fff;text-align:center;padding-block:10px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.06em;text-transform:uppercase}
+.promo span{opacity:.85;font-family:var(--label);font-weight:600;font-size:14px;letter-spacing:.12em;display:block}
+
+main .wrap{padding-block:24px 40px;display:flex;flex-direction:column;gap:34px}
+
+/* BOTONES */
+.links{display:flex;flex-direction:column;gap:10px}
+.cta{display:flex;align-items:center;gap:14px;padding:18px 18px;background:var(--red);color:#fff;text-decoration:none;position:relative;transition:background .15s}
+.cta:hover{background:#e12a4a}
+.cta .ic{background:rgba(0,0,0,.2)}
+.cta .t{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:.03em;line-height:1}
+.cta .s{color:rgba(255,255,255,.85)}
+.link{display:flex;align-items:center;gap:14px;padding:14px 16px;background:var(--coal);border:1px solid var(--rope);text-decoration:none;transition:border-color .15s,transform .15s}
+.link:hover{border-color:var(--red);transform:translateX(2px)}
+.ic{flex:none;width:44px;height:44px;display:grid;place-items:center;background:var(--ink);border:1px solid var(--rope)}
+.cta .ic{border-color:transparent}
+.ic svg{width:22px;height:22px}
+.txt{flex:1;min-width:0;display:flex;flex-direction:column}
+.t{font-weight:600;font-size:17px;line-height:1.2}
+.s{font-size:14px;color:var(--dust);overflow-wrap:anywhere}
+.arr{flex:none;width:18px;height:18px;opacity:.6}
+.link.wa .ic{color:var(--wa)}
+.link.ig .ic{color:#e4688a}
+.link.fb .ic{color:#5b8def}
+
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn-ghost{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 10px;border:1px solid var(--rope);background:transparent;color:var(--bone);font-family:var(--label);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.btn-ghost:hover{border-color:var(--bone)}
+.btn-ghost svg{width:18px;height:18px}
+
+/* SECCIONES */
+h2{margin:0 0 14px;font-family:var(--display);font-weight:800;font-size:32px;line-height:1;text-transform:uppercase;letter-spacing:.02em;display:flex;align-items:baseline;gap:10px}
+h2 small{font-family:var(--label);font-weight:600;font-size:13px;letter-spacing:.2em;color:var(--red)}
+
+.disc{display:flex;flex-direction:column;gap:10px}
+.d{position:relative;display:flex;align-items:flex-end;min-height:132px;padding:16px;overflow:hidden;background:var(--coal) center/cover no-repeat;isolation:isolate}
+.d::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(13,11,11,.92) 0%,rgba(13,11,11,.55) 60%,rgba(13,11,11,.25) 100%)}
+.d h3{margin:0;font-family:var(--display);font-weight:900;font-size:34px;line-height:.9;text-transform:uppercase}
+.d p{margin:6px 0 0;font-size:14px;color:var(--bone);opacity:.85;max-width:28ch}
+
+/* HORARIOS */
+.card-h{border:1px solid var(--rope);background:var(--coal)}
+.hrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--rope)}
+.hrow:last-child{border-bottom:0}
+.hrow.today{background:linear-gradient(90deg,rgba(211,32,63,.16),transparent)}
+.day{font-family:var(--label);font-weight:700;font-size:17px;letter-spacing:.08em;text-transform:uppercase}
+.day em{font-style:normal;font-size:12px;color:var(--red);letter-spacing:.14em;margin-left:6px}
+.hours{text-align:right;font-variant-numeric:tabular-nums;font-weight:500;font-size:15px;line-height:1.35}
+.hours.off{color:var(--dust)}
+
+.quote{border-left:3px solid var(--red);padding:4px 0 4px 16px;font-family:var(--display);font-weight:800;font-size:28px;line-height:1;text-transform:uppercase}
+
+footer{border-top:1px solid var(--rope)}
+footer .wrap{padding-block:22px calc(28px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:12px;color:var(--dust);font-size:13px}
+footer img{width:40px;flex:none}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--bone);color:var(--ink);padding:10px 16px;font-weight:600;font-size:14px;transition:.2s;z-index:20;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+
+/* AVISO: agregar la tienda a la pantalla de inicio */
+.install{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--coal);border-top:3px solid var(--red);box-shadow:0 -10px 30px rgba(0,0,0,.5);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px calc(16px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .3s ease}
+.install.on{transform:none}
+.install-in{max-width:520px;margin:0 auto;display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px 14px;align-items:start}
+.install img{width:52px;height:52px;border:1px solid var(--rope)}
+.install b{display:block;font-family:var(--display);font-weight:800;font-size:22px;line-height:1.05;text-transform:uppercase}
+.install .ins-s{display:block;font-size:14px;color:var(--dust);margin-top:4px}
+.install ol{margin:8px 0 0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:3px}
+.ins-btns{grid-column:1/-1;display:flex;gap:10px}
+.ins-btns > *{flex:1;display:flex;align-items:center;justify-content:center;min-height:44px;font-family:var(--label);font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;border:1px solid var(--rope);background:transparent;color:var(--bone)}
+.ins-btns .ins-main{background:var(--red);border-color:var(--red);color:#fff}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img class="logo" src="img/logo.png" alt="Logo de GymBox Carlos Zárate: corona, guantes de box y laureles" width="600" height="518">
+    <div class="eyebrow">Box <b>·</b> Funcional <b>·</b> Pesas</div>
+    <h1>GymBox</h1>
+    <div class="owner">Carlos Zárate</div>
+    <p class="motto">Logramos objetivos y <strong>alcanzamos metas.</strong></p>
+    <div class="status" id="status"><i></i><span>Horario del gimnasio</span></div>
+  </div>
+</header>
+
+<div class="promo"><div class="wrap">¡Prueba tu primer round gratis!<span>Inscríbete hoy y paga solo tu mensualidad</span></div></div>
+
+<main>
+  <div class="wrap">
+
+    <nav class="links" aria-label="Enlaces de GymBox">
+      <!-- Botón principal: lleva a la página de mensualidades y productos -->
+      <a class="cta" href="tienda.html">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+        <span class="txt"><span class="t">Mensualidades y tienda</span><span class="s">Planes por día, semana, mes y año · Guantes, vendas y chalecos</span></span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 6l6 6-6 6"/></svg>
+      </a>
+
+      <a class="link wa" id="lnk-wa" href="#" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.3l-4.5 1.2z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9a5 5 0 0 1-2.8-2.8l.9-1-1-2L9 8.5z" fill="currentColor" stroke-width="1"/></svg></span>
+        <span class="txt"><span class="t">WhatsApp</span><span class="s" data-k="telefono"></span></span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+
+      <a class="link" id="lnk-tel" href="#">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+        <span class="txt"><span class="t">Llámanos</span><span class="s" data-k="telefono"></span></span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+
+      <a class="link ig" id="lnk-ig" href="#" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="txt"><span class="t">Instagram</span><span class="s" data-k="instagramUsuario"></span></span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+
+      <a class="link fb" id="lnk-fb" href="#" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4A21 21 0 0 0 14.3 4c-2.3 0-3.9 1.4-3.9 4v2.5H7.8v3h2.6V21h3.1z"/></svg></span>
+        <span class="txt"><span class="t">Facebook</span><span class="s">GymBox Carlos Zárate</span></span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+
+      <a class="link" id="lnk-mail" href="#">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg></span>
+        <span class="txt"><span class="t">Escríbenos</span><span class="s" data-k="correo"></span></span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+
+      <a class="link" id="lnk-maps" href="#" target="_blank" rel="noopener">
+        <span class="ic" style="color:var(--red)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+        <span class="txt"><span class="t">Cómo llegar</span><span class="s" id="lnk-maps-s">Ver ubicación en Google Maps</span></span>
+        <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg>
+      </a>
+
+      <div class="row2">
+        <button class="btn-ghost" id="btn-vcard" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>Guardar contacto</button>
+        <button class="btn-ghost" id="btn-share" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M5 13v7h14v-7"/></svg>Compartir</button>
+      </div>
+    </nav>
+
+    <section aria-labelledby="h-disc">
+      <h2 id="h-disc">Lo que entrenamos</h2>
+      <div class="disc">
+        <article class="d" style="background-image:url('img/ring.jpg')">
+          <div><h3>Box</h3><p>Técnica, costal, manoplas y ring. Entrena como un boxeador.</p></div>
+        </article>
+        <article class="d" style="background-image:url('img/mural-interior.jpg')">
+          <div><h3>Entrenamiento<br>funcional</h3><p>Fuerza, resistencia y condición para el día a día.</p></div>
+        </article>
+        <article class="d" style="background-image:url('img/pesas.jpg')">
+          <div><h3>Pesas</h3><p>Área de máquinas y peso libre para ganar fuerza.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="h-hor">
+      <h2 id="h-hor">Horarios <small>Round por round</small></h2>
+      <div class="card-h" id="horarios">
+        <div class="hrow" data-days="1,2,3,4,5"><span class="day">Lunes a viernes</span><span class="hours">7:00 – 11:00<br>16:00 – 21:00</span></div>
+        <div class="hrow" data-days="6"><span class="day">Sábado</span><span class="hours">7:00 – 11:00</span></div>
+        <div class="hrow" data-days="0"><span class="day">Domingo</span><span class="hours off">Cerrado</span></div>
+      </div>
+    </section>
+
+    <p class="quote">Transforma tu cuerpo,<br>entrena como un boxeador.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="" width="600" height="518">
+    <span>GymBox Carlos Zárate · Box, entrenamiento funcional y pesas.<br>© <span id="yr">2026</span> Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<div class="install" id="install" role="dialog" aria-labelledby="ins-t" hidden>
+  <div class="install-in">
+    <img src="img/icon-192.png" alt="" width="192" height="192">
+    <div>
+      <b id="ins-t">Ten la tienda en tu celular</b>
+      <span class="ins-s">Agrega la tienda GymBox a tu pantalla de inicio y ve mensualidades y productos con un toque.</span>
+      <ol id="ins-ios" hidden><li>Toca <strong>Abrir la tienda</strong>.</li><li>En Safari toca el botón <strong>Compartir</strong>.</li><li>Elige <strong>Agregar a pantalla de inicio</strong>.</li></ol>
+    </div>
+    <div class="ins-btns">
+      <button type="button" id="ins-no">Ahora no</button>
+      <button type="button" class="ins-main" id="ins-yes">Agregar</button>
+      <a class="ins-main" id="ins-go" href="tienda.html?instalar=1" hidden>Abrir la tienda</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   DATOS DEL GIMNASIO — edita aquí
+   ============================================================ */
+const CONFIG = {
+  nombre: "GymBox Carlos Zárate",
+  telefono: "735 177 7971",           // como se muestra (10 dígitos)
+  whatsapp: "527351777971",           // 52 + 10 dígitos, SIN "+" ni espacios (así lo pide wa.me)
+  correo: "gymboxcarloszarate@gmail.com",
+  facebook: "https://www.facebook.com/profile.php?id=100068998752666",
+  instagram: "https://www.instagram.com/gymboxcarloszarate_/",                     // PEGA AQUÍ el link de Instagram, p. ej. "https://www.instagram.com/usuario/"
+  instagramUsuario: "@gymboxcarloszarate_",
+  direccion: "",                      // ESCRIBE AQUÍ la dirección del gimnasio
+  mapsUrl: "https://maps.app.goo.gl/rJXiktZEsSCgXQtY8",
+  mensajeWhatsApp: "Hola, vengo de la página de GymBox y quiero información para inscribirme."
+};
+// Horarios: [día de la semana (0=domingo), hora apertura, hora cierre]
+const HORARIO = [[1,7,11],[1,16,21],[2,7,11],[2,16,21],[3,7,11],[3,16,21],[4,7,11],[4,16,21],[5,7,11],[5,16,21],[6,7,11]];
+
+const $ = id => document.getElementById(id);
+document.querySelectorAll("[data-k]").forEach(el => el.textContent = CONFIG[el.dataset.k] || "");
+$("lnk-wa").href = "https://wa.me/" + CONFIG.whatsapp.replace(/\D/g, "") + "?text=" + encodeURIComponent(CONFIG.mensajeWhatsApp);
+$("lnk-tel").href = "tel:+52" + CONFIG.telefono.replace(/\D/g, "");
+$("lnk-mail").href = "mailto:" + CONFIG.correo;
+$("lnk-fb").href = CONFIG.facebook;
+$("lnk-maps").href = CONFIG.mapsUrl;
+if (CONFIG.direccion) $("lnk-maps-s").textContent = CONFIG.direccion;
+if (CONFIG.instagram) { $("lnk-ig").href = CONFIG.instagram; if (!CONFIG.instagramUsuario) $("lnk-ig").querySelector(".s").textContent = "Síguenos"; }
+else { $("lnk-ig").hidden = true; }   // se oculta hasta que agregues el link
+$("yr").textContent = new Date().getFullYear();
+
+/* Abierto / cerrado con la hora de Ciudad de México */
+(function () {
+  const now = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Mexico_City" }));
+  const d = now.getDay(), h = now.getHours() + now.getMinutes() / 60;
+  const nombres = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+  const hh = n => n + ":00";
+  document.querySelectorAll("#horarios .hrow").forEach(r => {
+    if (r.dataset.days.split(",").includes(String(d))) { r.classList.add("today"); r.querySelector(".day").insertAdjacentHTML("beforeend", "<em>Hoy</em>"); }
+  });
+  const abierto = HORARIO.find(([dd, a, c]) => dd === d && h >= a && h < c);
+  const st = $("status"), txt = st.querySelector("span");
+  if (abierto) { st.classList.add("open"); txt.textContent = "Abierto ahora · cierra a las " + hh(abierto[2]); return; }
+  for (let i = 0; i < 8; i++) {
+    const dd = (d + i) % 7;
+    const sig = HORARIO.filter(x => x[0] === dd && (i > 0 || x[1] > h)).sort((a, b) => a[1] - b[1])[0];
+    if (sig) { txt.textContent = "Cerrado · abre " + (i === 0 ? "hoy" : i === 1 ? "mañana" : "el " + nombres[dd]) + " a las " + hh(sig[1]); return; }
+  }
+})();
+
+function toast(m) { const t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove("show"), 2400); }
+
+/* Guardar contacto (.vcf) */
+$("btn-vcard").addEventListener("click", () => {
+  const v = ["BEGIN:VCARD","VERSION:3.0","FN:" + CONFIG.nombre,"ORG:" + CONFIG.nombre,
+    "TEL;TYPE=CELL:+52" + CONFIG.telefono.replace(/\D/g, ""),"EMAIL:" + CONFIG.correo,
+    "URL:" + location.href.split("#")[0],"NOTE:Box · Entrenamiento funcional · Pesas","END:VCARD"].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([v], { type: "text/vcard" }));
+  a.download = "GymBox-Carlos-Zarate.vcf";
+  document.body.appendChild(a); a.click(); a.remove();
+  toast("Contacto descargado");
+});
+
+/* Compartir */
+$("btn-share").addEventListener("click", async () => {
+  const data = { title: CONFIG.nombre, text: "Box, entrenamiento funcional y pesas. ¡Prueba tu primer round gratis!", url: location.href.split("#")[0] };
+  try {
+    if (navigator.share) { await navigator.share(data); return; }
+    await navigator.clipboard.writeText(data.url); toast("Enlace copiado");
+  } catch (e) { if (e && e.name !== "AbortError") toast("Copia el enlace desde la barra del navegador"); }
+});
+
+/* Aviso para agregar la tienda a la pantalla de inicio.
+   Android (Chrome, Edge, Samsung): muestra el diálogo nativo de instalación; el acceso abre tienda.html.
+   iPhone: Apple no permite el diálogo automático, así que se explican los pasos. */
+(function () {
+  const KEY = "gymbox_aviso_inicio", DIAS = 7;
+  const standalone = matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  let rechazado = 0; try { rechazado = +localStorage.getItem(KEY) || 0; } catch (e) {}
+  const silenciado = Date.now() - rechazado < DIAS * 864e5;
+  const box = $("install");
+  let diferido = null;
+  function mostrar() { if (standalone || silenciado) return; box.hidden = false; requestAnimationFrame(() => box.classList.add("on")); }
+  function ocultar(guardar) {
+    box.classList.remove("on"); setTimeout(() => box.hidden = true, 300);
+    if (guardar) try { localStorage.setItem(KEY, String(Date.now())); } catch (e) {}
+  }
+  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+  window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); diferido = e; setTimeout(mostrar, 1200); });
+  window.addEventListener("appinstalled", () => { ocultar(true); toast("Listo: la tienda ya está en tu inicio"); });
+  if (ios) {
+    $("ins-yes").hidden = true; $("ins-go").hidden = false; $("ins-ios").hidden = false;
+    setTimeout(mostrar, 1500);
+  }
+  $("ins-no").onclick = () => ocultar(true);
+  $("ins-yes").onclick = async () => {
+    if (!diferido) return ocultar(false);
+    diferido.prompt();
+    const r = await diferido.userChoice.catch(() => ({}));
+    diferido = null; ocultar(r.outcome !== "accepted");
+  };
+})();
+</script>
+</body>
+</html>
