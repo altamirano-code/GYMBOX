@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Instalaciones GymBox</title>
+<meta name="description" content="Conoce por dentro GymBox Carlos Zárate: ring de box, área de costales, peso libre y máquinas de fuerza.">
+<meta name="theme-color" content="#0d0b0b">
+<meta property="og:title" content="Instalaciones de GymBox Carlos Zárate">
+<meta property="og:description" content="Ring, costales, peso libre y máquinas. Conoce el gimnasio por dentro.">
+<meta property="og:image" content="img/instalaciones/ring.jpg">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700&display=swap">
+<style>
+/* Concepto: recorrido por el gym. El ring abre como cartelera, las demás zonas se recorren foto por foto. */
+:root{
+  --ink:#0d0b0b;
+  --coal:#171414;
+  --coal-2:#211c1c;
+  --rope:#2e2727;
+  --bone:#f3eee7;
+  --dust:#a69d95;
+  --red:#d3203f;
+  --red-hi:#e5304f;
+  --wa:#25d366;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --label:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--bone);font-family:var(--body);font-size:16px;line-height:1.5}
+body.lock{overflow:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:31;background:var(--ink)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* ---------- BARRA SUPERIOR (igual que la tienda) ---------- */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--ink);border-bottom:3px solid var(--red)}
+.bar .wrap{display:flex;align-items:center;gap:12px;height:64px}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;background:transparent;border:1px solid var(--rope);cursor:pointer;text-decoration:none;flex:none}
+.icon-btn:hover{border-color:var(--bone)}
+.icon-btn svg{width:20px;height:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;margin-right:auto}
+.brand img{width:44px;height:auto}
+.brand b{font-family:var(--display);font-weight:900;font-size:26px;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.brand span{display:block;font-family:var(--label);font-weight:600;font-size:11px;letter-spacing:.24em;color:var(--dust);text-transform:uppercase}
+.pill{display:inline-flex;align-items:center;height:42px;padding:0 16px;border:1px solid var(--rope);background:transparent;font-family:var(--label);font-weight:600;font-size:15px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;cursor:pointer;white-space:nowrap}
+.pill:hover{border-color:var(--bone)}
+.pill.now{border-color:var(--red);color:#fff}
+.pill.solid{background:var(--red);border-color:var(--red);color:#fff}
+.pill.solid:hover{background:var(--red-hi)}
+@media (max-width:720px){.pill.hide-sm{display:none}}
+
+/* ---------- HERO: EL RING ---------- */
+.hero{margin-top:20px;position:relative;isolation:isolate;overflow:hidden;background:var(--coal);cursor:zoom-in;display:block;width:100%;padding:0;border:0;text-align:left}
+.hero img{width:100%;aspect-ratio:16/9;max-height:620px;object-fit:cover;transition:transform .6s ease}
+.hero:hover img{transform:scale(1.02)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,11,0) 35%,rgba(13,11,11,.55) 62%,rgba(13,11,11,.94) 100%);pointer-events:none}
+.hero-in{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(18px,4vw,44px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+.kicker{font-family:var(--label);font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.hero h1{margin:6px 0 6px;font-family:var(--display);font-weight:900;font-size:clamp(44px,8.5vw,96px);line-height:.86;text-transform:uppercase;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero p{margin:0;font-size:17px;max-width:44ch}
+.zoom{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(243,238,231,.4);background:rgba(13,11,11,.5);font-family:var(--label);font-weight:600;font-size:14px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.zoom svg{width:16px;height:16px}
+@media (max-width:640px){
+  .hero img{aspect-ratio:4/5;max-height:none;object-position:42% center}
+  .zoom{display:none}
+}
+
+/* ---------- ZONAS ---------- */
+.sec{padding-block:44px 8px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 20px;margin-bottom:18px}
+h2{margin:0;font-family:var(--display);font-weight:800;font-size:clamp(34px,5vw,46px);line-height:.95;text-transform:uppercase}
+.sec-head p{margin:0;color:var(--dust);font-size:15px;max-width:52ch}
+.zones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--rope);background:var(--coal)}
+.zone{display:flex;flex-direction:column;gap:2px;padding:16px 18px;border-right:1px solid var(--rope);background:none;border-top:0;border-bottom:0;border-left:0;text-align:left;cursor:pointer;transition:background .15s}
+.zone:last-child{border-right:0}
+.zone:hover{background:var(--coal-2)}
+.zone[aria-pressed="true"]{background:var(--red);color:#fff}
+.zone b{font-family:var(--display);font-weight:800;font-size:24px;line-height:1;text-transform:uppercase}
+.zone span{font-size:13px;color:var(--dust)}
+.zone[aria-pressed="true"] span{color:rgba(255,255,255,.85)}
+.zone small{font-family:var(--label);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.zone[aria-pressed="true"] small{color:#fff}
+@media (max-width:720px){.zones{grid-template-columns:repeat(2,minmax(0,1fr))}.zone:nth-child(2){border-right:0}.zone:nth-child(-n+2){border-bottom:1px solid var(--rope)}}
+
+/* ---------- GALERÍA ---------- */
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:18px}
+@media (min-width:980px){.grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+.ph{display:flex;flex-direction:column;background:var(--coal);border:1px solid var(--rope);padding:0;text-align:left;cursor:zoom-in;min-width:0;transition:border-color .2s}
+.ph:hover{border-color:var(--red)}
+.ph .frame{position:relative;aspect-ratio:1/1;max-width:100%;overflow:hidden;background:var(--coal-2)}
+.ph .frame img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease,filter .45s ease;filter:saturate(.9)}
+.ph:hover .frame img{transform:scale(1.05);filter:saturate(1.05)}
+.ph .frame::after{content:"";position:absolute;inset:auto 0 0 0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.ph:hover .frame::after{transform:scaleX(1)}
+.ph .cap{display:flex;flex-direction:column;gap:4px;padding:14px 14px 16px}
+.ph .tag{font-family:var(--label);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.ph h3{margin:0;font-size:17px;font-weight:600;line-height:1.25}
+.ph p{margin:0;font-size:14px;color:var(--dust)}
+@media (max-width:420px){.ph .cap{padding:12px 10px}.ph h3{font-size:15px}.ph p{display:none}}
+
+/* ---------- LLAMADO ---------- */
+.cta{margin-top:56px;background:var(--red);color:#fff;position:relative;overflow:hidden;isolation:isolate}
+.cta::before{content:"";position:absolute;inset:0;z-index:-1;background:url("img/logo.png") right -40px center/auto 150% no-repeat;opacity:.12}
+.cta .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding-block:32px}
+.cta h2{font-size:clamp(32px,5vw,52px)}
+.cta p{margin:6px 0 0;font-size:17px;max-width:44ch}
+.cta-btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 20px;font-family:var(--label);font-weight:700;font-size:16px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid #fff;color:#fff;background:transparent}
+.btn:hover{background:#fff;color:var(--red)}
+.btn.dark{background:var(--ink);border-color:var(--ink)}
+.btn.dark:hover{background:#000;color:#fff}
+.btn svg{width:18px;height:18px}
+
+/* ---------- VISOR ---------- */
+.lb{position:fixed;inset:0;z-index:50;background:#080707;display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px)}
+.lb-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px}
+.lb-count{font-family:var(--label);font-weight:700;font-size:15px;letter-spacing:.16em;color:var(--dust);font-variant-numeric:tabular-nums}
+.lb-count b{color:var(--bone)}
+.lb-stage{position:relative;display:grid;place-items:center;min-height:0;overflow:hidden;padding:0 64px;touch-action:pan-y}
+.lb-stage img{max-width:100%;max-height:calc(100vh - 210px);max-height:calc(100dvh - 210px);object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,.6);animation:lbIn .25s ease}
+@keyframes lbIn{from{opacity:0;transform:scale(.98)}to{opacity:1;transform:none}}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;display:grid;place-items:center;background:rgba(23,20,20,.85);border:1px solid var(--rope);cursor:pointer}
+.lb-nav:hover{border-color:var(--red);color:var(--red)}
+.lb-nav svg{width:22px;height:22px}
+.lb-prev{left:8px}.lb-next{right:8px}
+.lb-cap{padding:14px 16px 18px;text-align:center}
+.lb-cap .tag{font-family:var(--label);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.lb-cap h3{margin:2px 0 0;font-family:var(--display);font-weight:800;font-size:28px;line-height:1;text-transform:uppercase}
+.lb-cap p{margin:6px auto 0;color:var(--dust);font-size:15px;max-width:52ch}
+@media (max-width:640px){.lb-stage{padding:0 8px}.lb-nav{top:auto;bottom:-56px;transform:none}.lb-prev{left:16px}.lb-next{right:16px}.lb-cap{padding-inline:72px}}
+
+/* ---------- PIE (igual que la tienda) ---------- */
+footer{margin-top:0;border-top:3px solid var(--red);background:var(--coal)}
+.foot{display:grid;grid-template-columns:repeat(3,minmax(0,.8fr)) minmax(0,1.4fr);gap:24px;padding-block:32px}
+@media (max-width:860px){.foot{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.foot{grid-template-columns:minmax(0,1fr)}}
+.foot h4{margin:0 0 10px;font-family:var(--label);font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--dust)}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.foot li{overflow-wrap:anywhere}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--red)}
+.ci{display:flex;gap:10px;align-items:flex-start}
+.ci svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--dust)}
+.mapbox{position:relative;margin-top:4px;aspect-ratio:16/9;width:100%;max-width:100%;border:1px solid var(--rope);overflow:hidden;background:var(--coal-2)}
+.mapbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.mapsbtn{position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;background:#fff;color:#1a73e8!important;font-weight:600;font-size:14px;box-shadow:0 1px 4px rgba(0,0,0,.35);border-radius:2px}
+.mapsbtn svg{width:14px;height:14px}
+.copy{border-top:1px solid var(--rope);padding-block:16px;color:var(--dust);font-size:13px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+.copy nav{display:flex;gap:16px}
+.copy nav a{text-decoration:none;color:var(--bone)}
+.copy nav a:hover{color:var(--red)}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--bone);color:var(--ink);padding:11px 18px;font-weight:600;font-size:14px;transition:.2s;z-index:60;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="icon-btn" href="index.html" aria-label="Volver a la página de GymBox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></a>
+    <a class="brand" href="index.html">
+      <img src="img/logo.png" alt="" width="600" height="518">
+      <div><b>GymBox</b><span>Carlos Zárate</span></div>
+    </a>
+    <a class="pill hide-sm" href="index.html">Quiénes somos</a>
+    <button class="pill hide-sm" type="button" id="btn-share">Compartir</button>
+    <a class="pill solid" href="tienda.html">Tienda</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <!-- El ring va primero y en grande -->
+    <button class="hero" type="button" data-i="0" aria-label="Ver foto del ring en grande">
+      <img src="img/instalaciones/ring.jpg" alt="Ring de box de GymBox Carlos Zárate con el mural de entrenamiento al fondo" width="1600" height="900">
+      <div class="hero-in">
+        <div>
+          <div class="kicker">Instalaciones del lugar</div>
+          <h1>Sube al <em>ring</em></h1>
+          <p>Conoce el gimnasio por dentro: el cuadrilátero, los costales, el peso libre y las máquinas donde vas a entrenar.</p>
+        </div>
+        <span class="zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Ver en grande</span>
+      </div>
+    </button>
+
+    <section class="sec" aria-labelledby="h-zonas">
+      <div class="sec-head">
+        <h2 id="h-zonas">Recorre el gym</h2>
+        <p>Elige una zona o toca cualquier foto para verla completa.</p>
+      </div>
+      <div class="zones" id="zones" role="group" aria-label="Filtrar fotos por zona"></div>
+      <div class="grid" id="grid"></div>
+    </section>
+  </div>
+
+  <section class="cta" aria-labelledby="h-cta">
+    <div class="wrap">
+      <div>
+        <h2 id="h-cta">Tu primer round es gratis</h2>
+        <p>Ven a conocer el lugar en persona. Inscríbete hoy y paga solo tu mensualidad.</p>
+      </div>
+      <div class="cta-btns">
+        <a class="btn dark" href="tienda.html#mensualidades">Ver mensualidades</a>
+        <a class="btn" id="cta-wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.3l-4.5 1.2z"/></svg>Escríbenos</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><h4>Formas de pago</h4><ul><li>Transferencia bancaria</li><li>Efectivo en el gimnasio</li></ul></div>
+      <div><h4>Entrega</h4><ul><li>Recoger en el gimnasio</li></ul></div>
+      <div><h4>Horarios</h4><ul style="font-variant-numeric:tabular-nums"><li>Lun a vie · 7:00–11:00</li><li>Lun a vie · 16:00–21:00</li><li>Sábado · 7:00–11:00</li></ul></div>
+      <div><h4>Contacto</h4><ul>
+        <li class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></svg><a id="f-mail" href="#" data-k="correo"></a></li>
+        <li class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.3l-4.5 1.2z"/></svg><a id="f-wa" href="#" target="_blank" rel="noopener">WhatsApp <span data-k="telefono"></span></a></li>
+        <li class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><a id="f-dir" href="#" target="_blank" rel="noopener"></a></li>
+        <li><div class="mapbox"><iframe id="f-map" title="Mapa de GymBox Carlos Zárate" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><a class="mapsbtn" id="f-maps" href="#" target="_blank" rel="noopener">Maps <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg></a></div></li>
+        <li class="ci" style="gap:16px"><a id="f-fb" href="#" target="_blank" rel="noopener">Facebook</a><a id="f-ig" href="#" target="_blank" rel="noopener">Instagram</a></li>
+      </ul></div>
+    </div>
+    <div class="copy">
+      <span>© <span id="yr">2026</span> GymBox Carlos Zárate. Todos los derechos reservados.</span>
+      <nav aria-label="Páginas"><a href="index.html">Inicio</a><a href="tienda.html">Tienda</a><a href="instalaciones.html">Instalaciones</a></nav>
+    </div>
+  </div>
+</footer>
+
+<!-- VISOR DE FOTOS -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto de las instalaciones" hidden>
+  <div class="lb-top">
+    <span class="lb-count" id="lb-count"></span>
+    <button class="icon-btn" type="button" id="lb-close" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="lb-stage" id="lb-stage">
+    <img id="lb-img" alt="">
+    <button class="lb-nav lb-prev" type="button" id="lb-prev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="lb-nav lb-next" type="button" id="lb-next" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  </div>
+  <div class="lb-cap"><div class="tag" id="lb-tag"></div><h3 id="lb-title"></h3><p id="lb-desc"></p></div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   DATOS — mismos que en tienda.html
+   ============================================================ */
+const CONFIG = {
+  telefono: "735 177 7971",
+  whatsapp: "527351777971",            // 52 + 10 dígitos, sin "+" ni espacios
+  correo: "gymboxcarloszarate@gmail.com",
+  facebook: "https://www.facebook.com/profile.php?id=100068998752666",
+  instagram: "https://www.instagram.com/gymboxcarloszarate_/",
+  direccion: "",                       // la misma dirección que pusiste en tienda.html
+  mapsUrl: "https://maps.app.goo.gl/rJXiktZEsSCgXQtY8",
+  mapsLat: 18.8749771,
+  mapsLng: -98.9691338
+};
+
+/* Zonas para el filtro */
+const ZONAS = [
+  { id: "todo",     nombre: "Todo",       desc: "El gym completo" },
+  { id: "box",      nombre: "Box",        desc: "Ring y costales" },
+  { id: "peso",     nombre: "Peso libre", desc: "Mancuernas y bancos" },
+  { id: "maquinas", nombre: "Máquinas",   desc: "Poleas, prensa y fuerza" }
+];
+
+/* Fotos — la primera es el ring (aparece en grande arriba).
+   Para agregar más: guarda la foto en img/instalaciones/ y añade una línea. */
+const FOTOS = [
+  { src: "img/instalaciones/ring.jpg",              zona: "box",      titulo: "El cuadrilátero",            desc: "Ring de box con el mural de entrenamiento al fondo. Aquí se hace técnica, manoplas y sparring." },
+  { src: "img/instalaciones/mural-costales.jpg",    zona: "box",      titulo: "Área de costales",           desc: "El mural del entrenador con manoplas y, al fondo, la línea de costales." },
+  { src: "img/instalaciones/area-pesas.jpg",        zona: "peso",     titulo: "Zona de pesas",              desc: "Mancuernero, barras, bancos y kettlebells en un mismo espacio." },
+  { src: "img/instalaciones/banco-mancuernero.jpg", zona: "peso",     titulo: "Bancos y mancuernero",       desc: "Banco ajustable y mancuernas de distintos pesos." },
+  { src: "img/instalaciones/banco-scott.jpg",       zona: "peso",     titulo: "Banco Scott",                desc: "Para bíceps con barra Z, junto al mancuernero." },
+  { src: "img/instalaciones/poleas.jpg",            zona: "maquinas", titulo: "Poleas y cruce de cables",   desc: "Estaciones de poleas con barra de dominadas y espejos." },
+  { src: "img/instalaciones/maquinas-fuerza.jpg",   zona: "maquinas", titulo: "Máquinas de fuerza",         desc: "Máquinas de placas para trabajar brazo y tren superior." },
+  { src: "img/instalaciones/zona-piernas.jpg",      zona: "maquinas", titulo: "Zona de pierna",             desc: "Prensa, hack y máquinas de pierna sobre piso de hule." },
+  { src: "img/instalaciones/prensa-tienda.jpg",     zona: "maquinas", titulo: "Prensa y rincón de la tienda", desc: "Área de pierna y, al fondo, ropa y accesorios a la venta." }
+];
+
+/* ============================================================ */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const waLink = t => "https://wa.me/" + String(CONFIG.whatsapp).replace(/\D/g, "") + "?text=" + encodeURIComponent(t);
+const zonaNombre = id => (ZONAS.find(z => z.id === id) || {}).nombre || "";
+function toast(m) { const t = $("toast"); t.textContent = m; t.classList.add("show"); clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove("show"), 2400); }
+
+/* pie y contacto */
+document.querySelectorAll("[data-k]").forEach(el => el.textContent = CONFIG[el.dataset.k] || "");
+$("f-mail").href = "mailto:" + CONFIG.correo;
+$("f-wa").href = waLink("Hola GymBox, quiero información.");
+$("cta-wa").href = waLink("Hola GymBox, vi las instalaciones en la página y quiero mi primer round gratis.");
+$("f-fb").href = CONFIG.facebook;
+if (CONFIG.instagram) $("f-ig").href = CONFIG.instagram; else $("f-ig").hidden = true;
+$("f-dir").textContent = CONFIG.direccion || "Ver ubicación en Google Maps";
+$("f-dir").href = CONFIG.mapsUrl; $("f-maps").href = CONFIG.mapsUrl;
+$("f-map").src = "https://maps.google.com/maps?q=" + CONFIG.mapsLat + "," + CONFIG.mapsLng + "&z=16&hl=es&output=embed";
+$("yr").textContent = new Date().getFullYear();
+
+/* zonas */
+let zona = "todo";
+$("zones").innerHTML = ZONAS.map(z => {
+  const n = z.id === "todo" ? FOTOS.length : FOTOS.filter(f => f.zona === z.id).length;
+  return `<button class="zone" type="button" data-z="${z.id}" aria-pressed="${z.id === zona}"><small>${n} ${n === 1 ? "foto" : "fotos"}</small><b>${esc(z.nombre)}</b><span>${esc(z.desc)}</span></button>`;
+}).join("");
+$("zones").addEventListener("click", e => {
+  const b = e.target.closest("[data-z]"); if (!b) return;
+  zona = b.dataset.z;
+  $("zones").querySelectorAll(".zone").forEach(x => x.setAttribute("aria-pressed", x.dataset.z === zona));
+  pintar();
+});
+
+/* galería (el ring ya está arriba, por eso empieza en la segunda foto) */
+const visibles = () => FOTOS.map((f, i) => ({ ...f, i })).filter((f, k) => (zona === "todo" ? k > 0 : f.zona === zona));
+function pintar() {
+  $("grid").innerHTML = visibles().map(f => `<button class="ph" type="button" data-i="${f.i}" aria-label="Ver ${esc(f.titulo)} en grande">
+      <div class="frame"><img src="${esc(f.src)}" alt="${esc(f.titulo)}" loading="lazy"></div>
+      <div class="cap"><span class="tag">${esc(zonaNombre(f.zona))}</span><h3>${esc(f.titulo)}</h3><p>${esc(f.desc)}</p></div>
+    </button>`).join("");
+}
+pintar();
+
+/* visor */
+let actual = 0, lista = [], ultimoFoco = null;
+function abrir(i) {
+  lista = zona === "todo" ? FOTOS.map((_, k) => k) : FOTOS.map((f, k) => f.zona === zona ? k : -1).filter(k => k >= 0);
+  if (!lista.includes(i)) lista = FOTOS.map((_, k) => k);
+  actual = lista.indexOf(i); ultimoFoco = document.activeElement;
+  $("lb").hidden = false; document.body.classList.add("lock");
+  mostrar(); $("lb-close").focus();
+}
+function mostrar() {
+  const f = FOTOS[lista[actual]];
+  const img = $("lb-img"); img.style.animation = "none"; img.offsetHeight; img.style.animation = "";
+  img.src = f.src; img.alt = f.titulo;
+  $("lb-tag").textContent = zonaNombre(f.zona); $("lb-title").textContent = f.titulo; $("lb-desc").textContent = f.desc;
+  $("lb-count").innerHTML = `<b>${actual + 1}</b> / ${lista.length}`;
+  const uno = lista.length < 2; $("lb-prev").hidden = uno; $("lb-next").hidden = uno;
+  const sig = FOTOS[lista[(actual + 1) % lista.length]]; new Image().src = sig.src;   // precarga la siguiente
+}
+function mover(d) { actual = (actual + d + lista.length) % lista.length; mostrar(); }
+function cerrar() { $("lb").hidden = true; document.body.classList.remove("lock"); if (ultimoFoco) ultimoFoco.focus(); }
+document.addEventListener("click", e => { const b = e.target.closest("[data-i]"); if (b) abrir(+b.dataset.i); });
+$("lb-prev").onclick = () => mover(-1); $("lb-next").onclick = () => mover(1); $("lb-close").onclick = cerrar;
+$("lb").addEventListener("click", e => { if (e.target.id === "lb-stage" || e.target.id === "lb") cerrar(); });
+document.addEventListener("keydown", e => {
+  if ($("lb").hidden) return;
+  if (e.key === "Escape") cerrar(); else if (e.key === "ArrowLeft") mover(-1); else if (e.key === "ArrowRight") mover(1);
+});
+let x0 = null;   // deslizar con el dedo
+$("lb-stage").addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+$("lb-stage").addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) mover(dx < 0 ? 1 : -1); x0 = null; });
+
+/* compartir */
+$("btn-share").onclick = async () => {
+  const data = { title: "Instalaciones de GymBox Carlos Zárate", text: "Conoce el gimnasio por dentro", url: location.href.split("#")[0] };
+  try { if (navigator.share) { await navigator.share(data); return; } await navigator.clipboard.writeText(data.url); toast("Enlace copiado"); }
+  catch (e) { if (e && e.name !== "AbortError") toast("Copia el enlace desde la barra del navegador"); }
+};
+if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+</script>
+</body>
+</html>
